@@ -1,0 +1,318 @@
+{
+	"info": {
+		"_postman_id": "a2fc117d-1a6f-42a1-a5ec-db6aa393bf8c",
+		"name": "ElVale 2.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "fiao",
+			"item": [
+				{
+					"name": "localhost:8083/api/fiao/actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "localhost:8083/api/fiao/actualizar"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/fiao/registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"cuenta\": \"47837440-cb5b-4954-84aa-38f7fe456011\",\n    \"valor\": 3000,\n    \"grabador\":\"43a8c74f-103e-4dd1-91ea-a6d5b72aff0c\",\n    \"estado\": \"43a8c74f-103e-4dd1-91ea-a6d5b72aff0c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8083/api/fiao/registrar"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/fiao/consultar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8083/api/fiao/consultar"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cliente",
+			"item": [
+				{
+					"name": "localhost:8083/api/cliente/consultar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8083/api/cliente/consultar"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/cliente/registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cliente\" : {\"id\":\"692dc41f-215a-4111-b7b8-9b6464c99bdb\"},\n    \"referencia\" : {\"id\": \"692dc41f-215a-4111-b7b8-9b6464c99bdb\"}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8083/api/cliente/registrar"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/cliente/actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "localhost:8083/api/cliente/actualizar"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Persona",
+			"item": [
+				{
+					"name": "localhost:8083/api/persona/consultar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8083/api/persona"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/persona/registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"nombre\": \"Farid Ureche\" ,\n   \"telefono\": \"3183830929\",\n   \"email\": \"elturcofarid@gmail.com\",\n   \"direccion\": \"cra 18\",\n   \"tipoDocumento\": \"CC\",\n   \"documento\":\"7601037\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8083/api/persona/registrar"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/persona/actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "localhost:8083/api/cliente/actualizar"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Establecimiento",
+			"item": [
+				{
+					"name": "localhost:8083/api/persona/consultar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8083/api/establecimiento"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/persona/registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Only Systems SAS \",\n    \"direccion\": \"donde la sra luz\",\n    \"telefono\": \"4306565\",\n    \"nit\": 123344336,\n    \"propietario\":{\"id\": \"692dc41f-215a-4111-b7b8-9b6464c99bdb\"}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8083/api/establecimiento/registrar"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/persona/actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "localhost:8083/api/cliente/actualizar"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "localhost:8083/api/usuario/consultar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8083/api/usuario/consultar"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/usuario/consultarId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"9ea3032e-c833-478f-9cb0-c937476c2180\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8083/api/usuario/consultar/id"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/usuario/registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"nombre\": \"Kelly \",\n\"rol\":\"27be3e98-6b97-4944-adad-8fd74edd5bda\",\n\"email\": \"elturco@gmail.com\",\n\"telefono\": 3183830929,\n\"creditoAprobado\" : 500000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8083/api/usuario/registrar"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/usuario/actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "localhost:8083/api/usuario/actualizar"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cuenta",
+			"item": [
+				{
+					"name": "localhost:8083/api/usuario/cuenta/consultar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "192.168.1.33:8083/api/cuenta/consultar"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/cuenta/consultarId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"e3f765ac-416a-4d48-814c-fd03dc5b1723\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8083/api/cuenta/consultar/id"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/cuenta/consultarUsuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"usuario\":{\"id\":\"c421b986-75d7-48a6-8969-1517cca107f0\"}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8083/api/cuenta/consultar/usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/cuenta/registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"cliente\":{\"id\":\"f57c3709-151a-4859-b6a8-ad72f7ef5274\"},\n\"creditoAprobado\": 150000,\n\"alias\": \"casa\",\n\"establecimiento\":{\"id\":\"5ceddda7-9c75-4b18-aa81-ffcb3c2f96dc\"}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8083/api/cuenta/registrar"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8083/api/cuenta/actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "localhost:8083/api/cuenta/actualizar"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
