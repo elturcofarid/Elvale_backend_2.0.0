@@ -14,10 +14,14 @@ Instrucciones para crear la bd
 Creación y levantamiento del Backend
 
 1. crear imagen backend
-    mvn clean package \n
-    docker build -t elvale_backend:2.0.0 . \n
 
-2. levantar contenedor
+   
+    mvn clean package 
+    
+    docker build -t elvale_backend:2.0.0 .
+   
+
+3. levantar contenedor
    docker run -d -p8083:8083 --name elvale-backend  elvale_backend:2.0.0
 
 
