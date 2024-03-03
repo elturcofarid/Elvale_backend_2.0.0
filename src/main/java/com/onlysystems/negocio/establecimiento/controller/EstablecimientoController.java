@@ -21,6 +21,7 @@ public class EstablecimientoController {
 
     @PostMapping("/registrar")
     public ResponseEntity<?> registrar(@RequestBody EstablecimientoDto establecimientoDto){
+
         logger.info("Registrando un establecimiento");
         return new ResponseEntity<>(establecimientoService.registrar(establecimientoDto), HttpStatus.CREATED);
     }
