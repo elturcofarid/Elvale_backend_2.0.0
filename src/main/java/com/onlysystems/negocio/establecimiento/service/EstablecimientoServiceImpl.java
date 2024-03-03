@@ -9,6 +9,7 @@ import com.onlysystems.negocio.usuario.mapper.GenericMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,8 +24,15 @@ public class EstablecimientoServiceImpl implements EstablecimientoService {
 
     @Override
     public List<EstablecimientoDto> consultar() {
-        empresaRepository.findAll().stream().forEach(fiao -> System.out.println("Este es el id del fio::: "+ fiao.getId()));
-        return null;
+        List<EstablecimientoDto> respuesta  = new ArrayList<>();
+        empresaRepository.findAll().stream().forEach(
+                establecimiento -> respuesta.add(mapper.mapEntityToDto(establecimiento, EstablecimientoDto.class)));
+        return respuesta;
+    }
+
+    @Override
+    public EstablecimientoDto consultarId(EstablecimientoDto establecimientoDto) {
+        return mapper.mapEntityToDto(empresaRepository.findById(establecimientoDto.getId()).get(), EstablecimientoDto.class);
     }
 
     @Override
@@ -34,6 +42,6 @@ public class EstablecimientoServiceImpl implements EstablecimientoService {
 
     @Override
     public void actualizar(EstablecimientoDto fiao) {
-
+ //TODO: implementar este metodo
     }
 }

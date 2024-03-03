@@ -9,6 +9,8 @@ public interface EstablecimientoService {
 
      List<EstablecimientoDto> consultar();
 
+     EstablecimientoDto consultarId(EstablecimientoDto establecimientoDto);
+
      UUID registrar(EstablecimientoDto empresa);
 
      void actualizar(EstablecimientoDto empresa);

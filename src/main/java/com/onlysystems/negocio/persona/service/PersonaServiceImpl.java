@@ -9,6 +9,7 @@ import com.onlysystems.negocio.usuario.mapper.GenericMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,8 +23,15 @@ public class PersonaServiceImpl implements PersonaService {
 
     @Override
     public List<PersonaDto> consultar (){
-        personaRepository.findAll().stream().forEach(fiao -> System.out.println("Este es el id del fio::: "+ fiao.getId()));
-        return null;
+        List<PersonaDto> personaDtoList = new ArrayList<>();
+        personaRepository.findAll().stream().forEach(
+                fiao -> personaDtoList.add(mapper.mapEntityToDto(fiao, PersonaDto.class)));
+        return personaDtoList;
+    }
+
+    @Override
+    public PersonaDto consultarId(PersonaDto personaDto){
+        return mapper.mapEntityToDto(personaRepository.findById(personaDto.getId()).get(), PersonaDto.class);
     }
 
     @Override

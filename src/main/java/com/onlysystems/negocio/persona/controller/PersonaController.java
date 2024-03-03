@@ -1,5 +1,6 @@
 package com.onlysystems.negocio.persona.controller;
 
+import com.onlysystems.negocio.comunes.ResponseDTO;
 import com.onlysystems.negocio.persona.entity.PersonaDto;
 import com.onlysystems.negocio.persona.service.PersonaService;
 import org.slf4j.Logger;
@@ -20,32 +21,41 @@ public class PersonaController {
     private PersonaService personaService;
 
     @PostMapping("/registrar")
-    public ResponseEntity<?> registrar(@RequestBody PersonaDto persona){
+    public ResponseEntity<ResponseDTO> registrar(@RequestBody PersonaDto persona){
         logger.info("Registrando un persona");
-        return new ResponseEntity<>(personaService.registrar(persona), HttpStatus.CREATED);
+        return new ResponseEntity<>(new ResponseDTO(
+                HttpStatus.CREATED.value(),
+                "Persona registrada exitosamente",
+                personaService.registrar(persona)
+        ), HttpStatus.CREATED);
     }
 
     @GetMapping()
-    public ResponseEntity<?> consultar(){
+    public ResponseEntity<ResponseDTO> consultar(){
         logger.info("Consultando un persona");
-        personaService.consultar();
-        return new ResponseEntity<>(null, HttpStatus.OK);
+
+        return new ResponseEntity<>(new ResponseDTO(
+                HttpStatus.OK.value(),
+                "Consulta ejecutada exitosamente",
+                personaService.consultar()
+        ), HttpStatus.CREATED);
     }
 
-    /*
-    @PostMapping("/pagar")
-    public ResponseEntity<?> pagarFiao(){
-        logger.info("Pagando un fiao");
-
-        return new ResponseEntity<>(null, HttpStatus.OK);
+    @GetMapping("/id")
+    public ResponseEntity<ResponseDTO> consultarId(@RequestBody PersonaDto personaDto){
+        logger.info("Consultando un persona");
+        return new ResponseEntity<>(
+                new ResponseDTO(
+                        HttpStatus.OK.value(),
+                        "Consulta ejecutada exitosamente",
+                        personaService.consultarId(personaDto)
+                ), HttpStatus.OK);
     }
-    */
-
 
 
     @PutMapping()
-    public ResponseEntity<?> actualizar(){
+    public ResponseEntity<ResponseDTO> actualizar(){
         logger.info("Actualizar un cliente");
-        return new ResponseEntity<>(null, HttpStatus.OK);
+        return new ResponseEntity<>(new ResponseDTO(), HttpStatus.OK);
     }
 }
