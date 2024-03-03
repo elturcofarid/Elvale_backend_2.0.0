@@ -8,6 +8,8 @@ public interface PersonaService {
 
      List<PersonaDto> consultar();
 
+     PersonaDto consultarId(PersonaDto personaDto);
+
      UUID registrar(PersonaDto cleinte);
 
      void actualizar(PersonaDto cleinte);

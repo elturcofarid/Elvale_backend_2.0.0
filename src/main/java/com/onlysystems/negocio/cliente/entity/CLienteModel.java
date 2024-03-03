@@ -3,8 +3,6 @@ package com.onlysystems.negocio.cliente.entity;
 
 import com.onlysystems.negocio.persona.entity.PersonaModel;
 import jakarta.persistence.*;
-
-import java.sql.Timestamp;
 import java.util.UUID;
 
 @Entity

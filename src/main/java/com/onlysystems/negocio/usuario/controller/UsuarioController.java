@@ -1,6 +1,7 @@
 package com.onlysystems.negocio.usuario.controller;
 
 import com.google.gson.Gson;
+import com.onlysystems.negocio.comunes.ResponseDTO;
 import com.onlysystems.negocio.usuario.entity.UsuarioDto;
 import com.onlysystems.negocio.usuario.service.UsuarioService;
 import org.slf4j.Logger;
@@ -23,10 +24,10 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping("/registrar")
-    public ResponseEntity<?> registrar(@RequestBody UsuarioDto usuarioDto){
-        logger.info("Registrando un establecimiento" + usuarioDto.getNombre());
+    public ResponseEntity<ResponseDTO> registrar(@RequestBody UsuarioDto usuarioDto){
+        logger.info("Registrando un establecimiento");
         usuarioService.registrar(usuarioDto);
-        return new ResponseEntity<>(null, HttpStatus.CREATED);
+        return new ResponseEntity<>(new ResponseDTO(), HttpStatus.CREATED);
     }
 
     @GetMapping("/consultar")
@@ -41,20 +42,10 @@ public class UsuarioController {
         return new ResponseEntity<>(gson.toJson(usuarioService.consultarId(usuarioDto)), HttpStatus.OK);
     }
 
-    /*
-    @PostMapping("/pagar")
-    public ResponseEntity<?> pagarFiao(){
-        logger.info("Pagando un fiao");
-
-        return new ResponseEntity<>(null, HttpStatus.OK);
-    }
-    */
-
-
 
     @PutMapping("/actualizar")
-    public ResponseEntity<?> actualizar(){
+    public ResponseEntity<ResponseDTO> actualizar(){
         logger.info("Actualizar un establecimiento");
-        return new ResponseEntity<>(null, HttpStatus.OK);
+        return new ResponseEntity<>(new ResponseDTO(), HttpStatus.OK);
     }
 }
