@@ -2,11 +2,7 @@ package com.onlysystems.negocio.cuenta.entity;
 
 import com.onlysystems.negocio.cliente.entity.ClienteDto;
 import com.onlysystems.negocio.establecimiento.entity.EstablecimientoDto;
-import com.onlysystems.negocio.establecimiento.entity.EstablecimientoModel;
-import com.onlysystems.negocio.fiao.entity.FiaoDto;
 import com.onlysystems.negocio.fiao.entity.FiaoModel;
-import com.onlysystems.negocio.usuario.entity.UsuarioDto;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;

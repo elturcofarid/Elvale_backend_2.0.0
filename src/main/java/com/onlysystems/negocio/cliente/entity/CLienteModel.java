@@ -44,9 +44,4 @@ public class CLienteModel {
         this.id = id;
     }
 
-    public CLienteModel() {
-
-    }
-
-
 }

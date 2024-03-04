@@ -31,15 +31,25 @@ public class UsuarioController {
     }
 
     @GetMapping("/consultar")
-    public ResponseEntity<?> consultar(){
+    public ResponseEntity<ResponseDTO> consultar(){
         logger.info("Consultando un usuaerios");
-        return new ResponseEntity<>(gson.toJson(usuarioService.consultar()), HttpStatus.OK);
+        return new ResponseEntity<>(
+                new ResponseDTO(
+                        HttpStatus.OK.value(),
+                        "Consulta ejecutada exitosamente",
+                        gson.toJson(usuarioService.consultar())
+                ), HttpStatus.OK);
     }
 
     @GetMapping("/consultar/id")
-    public ResponseEntity<?> consultar(@RequestBody UsuarioDto usuarioDto){
+    public ResponseEntity<ResponseDTO> consultarId(@RequestBody UsuarioDto usuarioDto){
         logger.info("Consultando un usuaerios");
-        return new ResponseEntity<>(gson.toJson(usuarioService.consultarId(usuarioDto)), HttpStatus.OK);
+        return new ResponseEntity<>(
+                new ResponseDTO(
+                        HttpStatus.OK.value(),
+                        "Consulta ejecutada exitosamente",
+                        gson.toJson(usuarioService.consultarId(usuarioDto))
+                ), HttpStatus.OK);
     }
 
 

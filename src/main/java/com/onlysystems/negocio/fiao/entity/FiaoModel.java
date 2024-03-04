@@ -1,6 +1,5 @@
 package com.onlysystems.negocio.fiao.entity;
 
-import com.onlysystems.negocio.cuenta.entity.CuentaModel;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -39,10 +38,6 @@ public class FiaoModel {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public FiaoModel() {
-
     }
 
     public UUID getCuenta() {

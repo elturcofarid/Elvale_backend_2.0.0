@@ -1,7 +1,5 @@
 package com.onlysystems.negocio.fiao.entity;
 
-import com.onlysystems.negocio.cuenta.entity.CuentaDto;
-
 import java.sql.Timestamp;
 import java.util.UUID;
 

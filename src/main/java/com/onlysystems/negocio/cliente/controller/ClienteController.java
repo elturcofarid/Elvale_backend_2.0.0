@@ -2,6 +2,7 @@ package com.onlysystems.negocio.cliente.controller;
 
 import com.onlysystems.negocio.cliente.entity.ClienteDto;
 import com.onlysystems.negocio.cliente.service.ClienteService;
+import com.onlysystems.negocio.comunes.ResponseDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,32 +21,29 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping("/registrar")
-    public ResponseEntity<?> registrarCliente(@RequestBody ClienteDto clienteDto){
-        logger.info("Registrando un cliente" + clienteDto.toString());
+    public ResponseEntity<ResponseDTO> registrarCliente(@RequestBody ClienteDto clienteDto){
+        logger.info("Registrando un cliente" );
 
-        return new ResponseEntity<>(clienteService.registrar(clienteDto), HttpStatus.CREATED);
+        return new ResponseEntity<>(new ResponseDTO(
+                HttpStatus.CREATED.value(),
+                "CLiente registrado exitosamente",
+                clienteService.registrar(clienteDto)
+        ), HttpStatus.CREATED);
     }
 
     @GetMapping("/consultar")
-    public ResponseEntity<?> consultar(){
+    public ResponseEntity<ResponseDTO> consultar(){
         logger.info("Consultando un cliente");
-        return new ResponseEntity<>(clienteService.consultarCliente(), HttpStatus.OK);
+        return new ResponseEntity<>(new ResponseDTO(
+                HttpStatus.OK.value(),
+                "Consulta ejecutada exitosamente",
+                clienteService.consultarCliente()
+        ), HttpStatus.CREATED);
     }
-
-    /*
-    @PostMapping("/pagar")
-    public ResponseEntity<?> pagarFiao(){
-        logger.info("Pagando un fiao");
-
-        return new ResponseEntity<>(null, HttpStatus.OK);
-    }
-    */
-
-
 
     @PutMapping("/actualizar")
-    public ResponseEntity<?> actualizarCliente(){
+    public ResponseEntity<ResponseDTO> actualizarCliente(){
         logger.info("Actualizar un cliente");
-        return new ResponseEntity<>(null, HttpStatus.OK);
+        return new ResponseEntity<>(new ResponseDTO(), HttpStatus.OK);
     }
 }

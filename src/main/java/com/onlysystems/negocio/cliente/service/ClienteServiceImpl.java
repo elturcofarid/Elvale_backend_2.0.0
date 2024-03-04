@@ -3,8 +3,6 @@ package com.onlysystems.negocio.cliente.service;
 import com.onlysystems.negocio.cliente.entity.CLienteModel;
 import com.onlysystems.negocio.cliente.entity.ClienteDto;
 import com.onlysystems.negocio.cliente.repository.ClienteRepository;
-import com.onlysystems.negocio.establecimiento.entity.EstablecimientoDto;
-import com.onlysystems.negocio.establecimiento.entity.EstablecimientoModel;
 import com.onlysystems.negocio.usuario.mapper.GenericMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +35,6 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public void actualizar(ClienteDto fiao) {
-
+        throw new UnsupportedOperationException();
     }
 }

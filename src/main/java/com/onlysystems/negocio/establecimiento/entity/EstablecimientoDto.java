@@ -1,8 +1,6 @@
 package com.onlysystems.negocio.establecimiento.entity;
 
 import com.onlysystems.negocio.persona.entity.PersonaDto;
-import com.onlysystems.negocio.persona.entity.PersonaModel;
-
 import java.util.UUID;
 
 public class EstablecimientoDto {
