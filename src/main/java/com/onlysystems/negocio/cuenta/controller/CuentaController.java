@@ -4,12 +4,15 @@ import com.google.gson.Gson;
 import com.onlysystems.negocio.comunes.ResponseDTO;
 import com.onlysystems.negocio.cuenta.entity.CuentaDto;
 import com.onlysystems.negocio.cuenta.service.CuentaService;
+import com.onlysystems.negocio.exepcion.CustomException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/cuenta")
@@ -26,10 +29,22 @@ public class CuentaController {
     @PostMapping("/registrar")
     public ResponseEntity<ResponseDTO> registrar(@RequestBody CuentaDto cuentaDto){
         logger.info("Registrando un cuenta" );
+
+        UUID uuid;
+        try {
+            uuid = cuentaService.registrar(cuentaDto);
+        }catch (Exception e){
+            throw new CustomException(gson.toJson(new ResponseDTO(
+                    HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                    "Se presento un error al crear cuenta",
+                    null
+            )));
+        }
+
         return new ResponseEntity<>(new ResponseDTO(
                 HttpStatus.CREATED.value(),
                 "Cuenta creada exitosamente",
-                cuentaService.registrar(cuentaDto)
+                uuid
         ), HttpStatus.CREATED);
     }
 
