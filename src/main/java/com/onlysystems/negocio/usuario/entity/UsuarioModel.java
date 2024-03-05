@@ -4,8 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
-import java.net.PasswordAuthentication;
 import java.util.UUID;
 
 @Entity
@@ -22,16 +20,6 @@ public class UsuarioModel {
     private String email;
 
     private UUID rol;
-
-    /*private PasswordAuthentication autenticacion;
-
-    public PasswordAuthentication getAutenticacion() {
-        return autenticacion;
-    }
-
-    public void setAutenticacion(PasswordAuthentication autenticacion) {
-        this.autenticacion = autenticacion;
-    }*/
 
     public String getNombre() {
         return nombre;
@@ -65,9 +53,7 @@ public class UsuarioModel {
         this.id = id;
     }
 
-    public UsuarioModel() {
 
-    }
 
 
 }

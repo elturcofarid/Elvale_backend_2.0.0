@@ -1,16 +1,18 @@
 package com.onlysystems.negocio.usuario.service;
 
+import com.onlysystems.negocio.persona.entity.PersonaDto;
+import com.onlysystems.negocio.persona.entity.PersonaModel;
 import com.onlysystems.negocio.usuario.entity.UsuarioDto;
 import com.onlysystems.negocio.usuario.entity.UsuarioModel;
 import com.onlysystems.negocio.usuario.mapper.GenericMapper;
 import com.onlysystems.negocio.usuario.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
@@ -40,9 +42,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 
     @Override
-    public void registrar( UsuarioDto usuarioDto) {
-        usuarioRepository.save(mapper.mapDtoToEntity(usuarioDto, UsuarioModel.class));
+    public UUID registrar( UsuarioDto usuarioDto) {
+        return usuarioRepository.save(mapper.mapDtoToEntity(usuarioDto, UsuarioModel.class)).getId();
     }
+
 
     @Override
     public void actualizar(UsuarioDto fiao) {

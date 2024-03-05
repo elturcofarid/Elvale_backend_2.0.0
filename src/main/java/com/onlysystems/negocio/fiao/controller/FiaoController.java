@@ -1,5 +1,8 @@
 package com.onlysystems.negocio.fiao.controller;
 
+import com.google.gson.Gson;
+import com.onlysystems.negocio.comunes.ResponseDTO;
+import com.onlysystems.negocio.exepcion.CustomException;
 import com.onlysystems.negocio.fiao.entity.FiaoDto;
 import com.onlysystems.negocio.fiao.service.FiaoService;
 import org.slf4j.Logger;
@@ -18,40 +21,46 @@ public class FiaoController {
 
     private static Logger logger = LoggerFactory.getLogger(FiaoController.class);
 
+    private Gson gson = new Gson();
+
       @Autowired
     private FiaoService fiaoService;
 
     @PostMapping("/registrar")
-    public ResponseEntity<?> registrarFiao(@RequestBody FiaoDto fiaoDto){
+    public ResponseEntity<ResponseDTO> registrarFiao(@RequestBody FiaoDto fiaoDto){
         logger.info("Registrando un fiao");
-        return new ResponseEntity<>(fiaoService.registrar(fiaoDto), HttpStatus.CREATED);
+        UUID uuid;
+        try {
+            uuid = fiaoService.registrar(fiaoDto);
+        }catch (Exception e){
+            throw new CustomException(gson.toJson(new ResponseDTO(
+                    HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                    "Se presento un error al crear fiao",
+                    null
+            )));
+        }
+        return new ResponseEntity<>(new ResponseDTO(
+                HttpStatus.CREATED.value(),
+                "Fiao registrado exitosamente",
+                uuid
+        ), HttpStatus.CREATED);
     }
 
     @GetMapping("/consultar")
     public ResponseEntity<?> consultarFiao(){
         logger.info("Consultando un fiao");
 
-        return new ResponseEntity<>(fiaoService.consultarFiao(), HttpStatus.OK);
+        return new ResponseEntity<>(new ResponseDTO(
+                HttpStatus.CREATED.value(),
+                "Consulta ejecutada exitosamente",
+                fiaoService.consultarFiao()
+        ), HttpStatus.CREATED);
     }
-
-
-
-
-
-    /*
-    @PostMapping("/pagar")
-    public ResponseEntity<?> pagarFiao(){
-        logger.info("Pagando un fiao");
-
-        return new ResponseEntity<>(null, HttpStatus.OK);
-    }
-    */
-
 
 
     @PutMapping("/actualizar")
-    public ResponseEntity<?> actualizarFiao(){
+    public ResponseEntity<ResponseDTO> actualizarFiao(){
         logger.info("Actualizar un fiao");
-        return new ResponseEntity<>(null, HttpStatus.OK);
+        return new ResponseEntity<>(new ResponseDTO(), HttpStatus.OK);
     }
 }

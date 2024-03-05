@@ -74,9 +74,6 @@ public class EstablecimientoModel {
         this.id = id;
     }
 
-    public EstablecimientoModel() {
-
-    }
-
+ 
 
 }

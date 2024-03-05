@@ -3,6 +3,7 @@ package com.onlysystems.negocio.usuario.service;
 import com.onlysystems.negocio.usuario.entity.UsuarioDto;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface UsuarioService {
 
@@ -10,7 +11,7 @@ public interface UsuarioService {
 
      UsuarioDto consultarId(UsuarioDto usuario);
 
-     void registrar(UsuarioDto usuarioDto);
+     UUID registrar(UsuarioDto usuarioDto);
 
      void actualizar(UsuarioDto usuarioDto);
 

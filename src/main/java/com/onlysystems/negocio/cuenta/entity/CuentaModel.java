@@ -3,7 +3,6 @@ package com.onlysystems.negocio.cuenta.entity;
 import com.onlysystems.negocio.cliente.entity.CLienteModel;
 import com.onlysystems.negocio.establecimiento.entity.EstablecimientoModel;
 import com.onlysystems.negocio.fiao.entity.FiaoModel;
-import com.onlysystems.negocio.usuario.entity.UsuarioModel;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;

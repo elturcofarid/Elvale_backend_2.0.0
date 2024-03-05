@@ -1,6 +1,4 @@
 package com.onlysystems.negocio.usuario.entity;
-
-import java.net.PasswordAuthentication;
 import java.util.UUID;
 
 public class UsuarioDto {
@@ -12,16 +10,6 @@ public class UsuarioDto {
     private String email;
 
     private UUID rol;
-
-   /* private PasswordAuthentication autenticacion;
-
-    public PasswordAuthentication getAutenticacion() {
-        return autenticacion;
-    }
-
-    public void setAutenticacion(PasswordAuthentication autenticacion) {
-        this.autenticacion = autenticacion;
-    }*/
 
     public String getNombre() {
         return nombre;

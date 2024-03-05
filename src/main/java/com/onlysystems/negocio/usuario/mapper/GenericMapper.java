@@ -2,7 +2,7 @@ package com.onlysystems.negocio.usuario.mapper;
 
 import org.modelmapper.ModelMapper;
 
-public class GenericMapper<DTO, Entity> {
+public class GenericMapper<Clasedto, Claseentity> {
 
     private final ModelMapper modelMapper;
 
@@ -10,11 +10,11 @@ public class GenericMapper<DTO, Entity> {
         this.modelMapper = new ModelMapper();
     }
 
-    public Entity mapDtoToEntity(DTO dto, Class<Entity> entityClass) {
+    public Claseentity mapDtoToEntity(Clasedto dto, Class<Claseentity> entityClass) {
         return modelMapper.map(dto, entityClass);
     }
 
-    public DTO mapEntityToDto(Entity entity, Class<DTO> dtoClass) {
+    public Clasedto mapEntityToDto(Claseentity entity, Class<Clasedto> dtoClass) {
         return modelMapper.map(entity, dtoClass);
     }
 }

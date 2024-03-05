@@ -4,7 +4,9 @@ import com.onlysystems.negocio.cuenta.entity.CuentaDto;
 import com.onlysystems.negocio.cuenta.entity.CuentaModel;
 import com.onlysystems.negocio.cuenta.mapper.GenericMapper;
 import com.onlysystems.negocio.cuenta.repository.CuentaRepository;
+import com.onlysystems.negocio.exepcion.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -37,6 +39,9 @@ public class CuentaServiceImpl implements CuentaService {
     @Override
     public CuentaDto consultarId(CuentaDto usuarioDto) {
         Optional<CuentaModel> usuarioModel = usuarioRepository.findById(usuarioDto.getId());
+        if (usuarioModel.isEmpty()) {
+            throw new CustomException("No se encontro el usuario");
+        }
         return mapper.mapEntityToDto(usuarioModel.get(), CuentaDto.class );
     }
 
@@ -59,7 +64,7 @@ public class CuentaServiceImpl implements CuentaService {
 
     @Override
     public void actualizar(CuentaDto fiao) {
-
+        throw new UnsupportedOperationException();
     }
 
 }
