@@ -3,6 +3,8 @@ package com.onlysystems.negocio.cliente.entity;
 
 import com.onlysystems.negocio.persona.entity.PersonaModel;
 import jakarta.persistence.*;
+
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -19,6 +21,26 @@ public class CLienteModel {
 
     @ManyToOne
     private PersonaModel referencia;
+
+    private Instant fechaCreacion;
+
+    private Instant fechaModificacion;
+
+    public Instant getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Instant fechaCreacion) {
+        this.fechaCreacion = Instant.now();
+    }
+
+    public Instant getFechaModificacion() {
+        return fechaModificacion;
+    }
+
+    public void setFechaModificacion(Instant fechaModificacion) {
+        this.fechaModificacion = fechaModificacion;
+    }
 
     public PersonaModel getCliente() {
         return cliente;

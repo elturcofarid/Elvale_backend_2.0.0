@@ -5,6 +5,7 @@ import com.onlysystems.negocio.establecimiento.entity.EstablecimientoModel;
 import com.onlysystems.negocio.fiao.entity.FiaoModel;
 import jakarta.persistence.*;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -34,7 +35,25 @@ public class CuentaModel {
 
     private double creditoAprobado;
 
+    private Instant fechaCreacion;
 
+    private Instant fechaModificacion;
+
+    public Instant getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Instant fechaCreacion) {
+        this.fechaCreacion = Instant.now();
+    }
+
+    public Instant getFechaModificacion() {
+        return fechaModificacion;
+    }
+
+    public void setFechaModificacion(Instant fechaModificacion) {
+        this.fechaModificacion = fechaModificacion;
+    }
 
     public EstablecimientoModel getEstablecimiento() {
         return establecimiento;
