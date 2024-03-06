@@ -3,6 +3,7 @@ package com.onlysystems.negocio.establecimiento.entity;
 import com.onlysystems.negocio.persona.entity.PersonaModel;
 import jakarta.persistence.*;
 
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -20,11 +21,34 @@ public class EstablecimientoModel {
 
     private String telefono;
 
+
+
     @ManyToOne
     private PersonaModel propietario;
 
     @Column(unique = true, nullable = false)
     private Integer nit;
+
+
+    private Instant fechaCreacion;
+
+    private Instant fechaModificacion;
+
+    public Instant getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Instant fechaCreacion) {
+        this.fechaCreacion = Instant.now();
+    }
+
+    public Instant getFechaModificacion() {
+        return fechaModificacion;
+    }
+
+    public void setFechaModificacion(Instant fechaModificacion) {
+        this.fechaModificacion = fechaModificacion;
+    }
 
     public String getNombre() {
         return nombre;

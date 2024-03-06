@@ -1,6 +1,7 @@
 package com.onlysystems.negocio.fiao.entity;
 
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.UUID;
 
 public class FiaoDto {
@@ -13,7 +14,7 @@ public class FiaoDto {
 
     private UUID grabador;
 
-    private Timestamp fecha;
+    private Instant fecha;
 
     private UUID estado;
 
@@ -58,13 +59,11 @@ public class FiaoDto {
         this.grabador = grabador;
     }
 
-    public Timestamp getFecha() {
+    public Instant getFecha() {
         return fecha;
     }
 
-    public void setFecha(Timestamp fecha) {
-
+    public void setFecha(Instant fecha) {
         this.fecha = fecha;
     }
-
 }

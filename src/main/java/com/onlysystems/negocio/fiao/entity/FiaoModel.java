@@ -3,6 +3,7 @@ package com.onlysystems.negocio.fiao.entity;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -20,7 +21,7 @@ public class FiaoModel {
 
     private UUID grabador;
 
-    private Timestamp fecha;
+    private Instant fecha;
     
     private UUID estado;
 
@@ -45,6 +46,7 @@ public class FiaoModel {
     }
 
     public void setCuenta(UUID cuenta) {
+
         this.cuenta = cuenta;
     }
 
@@ -64,12 +66,12 @@ public class FiaoModel {
         this.grabador = grabador;
     }
 
-    public Timestamp getFecha() {
+    public Instant getFecha() {
         return fecha;
     }
 
-    public void setFecha(Timestamp fecha) {
-
-        this.fecha = fecha;
+    public void setFecha(Instant fecha) {
+        this.fecha = Instant.now();
     }
+
 }

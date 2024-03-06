@@ -2,6 +2,7 @@ package com.onlysystems.negocio.persona.entity;
 
 import jakarta.persistence.*;
 
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -25,6 +26,25 @@ public class PersonaModel {
 
     private String email;
 
+    private Instant fechaCreacion;
+
+    private Instant fechaModificacion;
+
+    public Instant getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Instant fechaCreacion) {
+        this.fechaCreacion = Instant.now();
+    }
+
+    public Instant getFechaModificacion() {
+        return fechaModificacion;
+    }
+
+    public void setFechaModificacion(Instant fechaModificacion) {
+        this.fechaModificacion = fechaModificacion;
+    }
 
     public String getNombre() {
         return nombre;

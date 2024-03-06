@@ -1,5 +1,6 @@
 package com.onlysystems.negocio.persona.entity;
 
+import java.time.Instant;
 import java.util.UUID;
 
 public class PersonaDto {
@@ -17,6 +18,26 @@ public class PersonaDto {
     private Integer documento;
 
     private String email;
+
+    private Instant fechaCreacion;
+
+    private Instant fechaModificacion;
+
+    public Instant getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Instant fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Instant getFechaModificacion() {
+        return fechaModificacion;
+    }
+
+    public void setFechaModificacion(Instant fechaModificacion) {
+        this.fechaModificacion = fechaModificacion;
+    }
 
     public String getNombre() {
         return nombre;

@@ -3,6 +3,8 @@ package com.onlysystems.negocio.cuenta.entity;
 import com.onlysystems.negocio.cliente.entity.ClienteDto;
 import com.onlysystems.negocio.establecimiento.entity.EstablecimientoDto;
 import com.onlysystems.negocio.fiao.entity.FiaoModel;
+
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -18,6 +20,26 @@ public class CuentaDto {
     private double creditoAprobado;
 
     private EstablecimientoDto establecimiento;
+
+    private Instant fechaCreacion;
+
+    private Instant fechaModificacion;
+
+    public Instant getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Instant fechaCreacion) {
+        this.fechaCreacion = Instant.now();
+    }
+
+    public Instant getFechaModificacion() {
+        return fechaModificacion;
+    }
+
+    public void setFechaModificacion(Instant fechaModificacion) {
+        this.fechaModificacion = fechaModificacion;
+    }
 
     public EstablecimientoDto getEstablecimiento() {
         return establecimiento;
